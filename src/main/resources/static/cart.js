@@ -1,6 +1,6 @@
 angular.module('app', []).controller('cartController', function ($scope, $http) {
     const contextPath = 'http://localhost:8189/store/api/v1';
-
+    $scope.fullPrice();
     $scope.subProductById = function (id) {
         $http.delete(contextPath + '/cart/' + id)
             .then(function (){
@@ -21,6 +21,7 @@ angular.module('app', []).controller('cartController', function ($scope, $http) 
             method: 'GET'
         }).then(function (response) {
             $scope.Carts = response.data;
+            $scope.fullPrice();
         });
     };
     $scope.fullPrice = function () {

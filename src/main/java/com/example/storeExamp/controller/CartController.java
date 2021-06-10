@@ -28,8 +28,8 @@ public class CartController {
         cart.subCart(id);
         }
     @GetMapping("/fullprice")
-    public void fullCartPrice(){
-        cart.fullCartPrice();
+    public Integer fullCartPrice(){
+        return cart.fullCartPrice();
     }
 }
 

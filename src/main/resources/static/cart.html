@@ -27,7 +27,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="p in Carts">
+        <tr ng-repeat="p in Carts" >
             <td>{{p.name}}</td>
             <td>{{p.price}}</td>
             <td>{{p.quantity}}</td>
@@ -38,7 +38,13 @@
                 <button class="btn btn-danger" ng-click="subProductById(p.id)">Удалить</button>
             </td>
         </tr>
-        <p ng-bind="fullCartPrice"></p>
+        <tr>
+            <td>Полная стоимость корзины выбранных товаров</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{fullCartPrice}}</td>
+        </tr>
         </tbody>
     </table>
 </div>

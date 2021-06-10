@@ -28,10 +28,9 @@ INSERT INTO items (name, price, version, category_id) VALUES
 
 create table users (
                        id                    bigserial,
-                       username              varchar(30) not null,
+                       login              varchar(30) not null,
                        password              varchar(80) not null,
                        email                 varchar(50) unique,
-                       score                 integer not null,
                        primary key (id)
 );
 
@@ -53,9 +52,9 @@ insert into roles (name)
 values
 ('ROLE_USER'), ('ROLE_ADMIN');
 
-insert into users (username, password, email, score)
+insert into users (login, password, email)
 values
-('user', '$2y$12$XvezKpnN7xiMq7nr8awpHeevo3vZuI26TNqZu5O7TWCApeLHe.qOm', 'user@gmail.com', 10);
+('user', '$2y$12$XvezKpnN7xiMq7nr8awpHeevo3vZuI26TNqZu5O7TWCApeLHe.qOm', 'user@gmail.com');
 
 insert into users_roles (user_id, role_id)
 values

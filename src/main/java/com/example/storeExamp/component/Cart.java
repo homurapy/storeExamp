@@ -4,6 +4,8 @@ import com.example.storeExamp.dto.OrderItem;
 import com.example.storeExamp.model.Item;
 import com.example.storeExamp.repository.ItemRepository;
 import com.example.storeExamp.service.ItemService;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -14,6 +16,8 @@ import java.util.Map;
 
 @Component
 @SessionScope
+@Setter
+
 public class Cart {
     private  Map<Long, OrderItem> content;
     private Integer totalPrice;
@@ -21,7 +25,6 @@ public class Cart {
 
     public Cart(ItemService service){
         this.content = new HashMap<>();
-        this.totalPrice = totalPrice;
         this.service = service;
     }
 
@@ -50,7 +53,7 @@ public class Cart {
         }
     }
     public Integer fullCartPrice() {
-        Integer summ = 100000;
+        Integer summ = 0;
 
         if (content == null) {
             return summ;
