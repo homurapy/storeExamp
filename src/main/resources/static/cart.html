@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="cart.js"></script>
+</head>
+
+<body>
+<a href="./">Назад</a>
+
+<div class="container" ng-controller="cartController">
+
+    <h3>Товары в корзине</h3>
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+            <td>Наименование</td>
+            <td>Стоимость за ед</td>
+            <td>Количество</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="p in Carts">
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.quantity}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="addProductById(p.id)">Добавить</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" ng-click="subProductById(p.id)">Удалить</button>
+            </td>
+        </tr>
+        <p ng-bind="fullCartPrice"></p>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
